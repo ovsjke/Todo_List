@@ -1,7 +1,8 @@
 services:
   app:
-    build:
-      context: .
+    build: .
+    env_file:
+      - .env
     container_name: backend_app
     ports:
       - "8000:8000"
@@ -9,7 +10,6 @@ services:
       - db
       - redis
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/mydb
       REDIS_HOST: redis
       REDIS_PORT: 6379
     restart: unless-stopped
