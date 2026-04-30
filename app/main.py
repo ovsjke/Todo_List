@@ -2,7 +2,7 @@ import asyncio
 from fastapi import FastAPI
 import uvicorn
 from app.core.database import Base, engine
-import app.core.models
+import app.core.models  # noqa: F401
 
 
 
