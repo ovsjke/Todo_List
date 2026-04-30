@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, status
 
 from schemas.user_schema import CreateUserSchema, ReturnUserSchema
 from services.user_serviece import UserService
@@ -6,7 +6,7 @@ from dependecies.user_dependecies import get_user_service
 
 router = APIRouter(prefix="/users", tags = ["Users"])
 
-@router.post("/signup", response_model= ReturnUserSchema)
+@router.post("/signup", response_model= ReturnUserSchema, summary = "Sign up user", status_code= status.HTTP_201_CREATED)
 async def create_user(
     data: CreateUserSchema,
     service: UserService = Depends(get_user_service)):
