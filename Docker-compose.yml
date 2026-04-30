@@ -18,7 +18,7 @@ services:
     image: postgres:16
     container_name: postgres_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       POSTGRES_DB: mydb
       POSTGRES_USER: postgres
