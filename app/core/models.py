@@ -1,6 +1,6 @@
 from uuid import UUID
 from datetime import datetime
-import uuid_utils as uuid7
+import uuid_utils
 from sqlalchemy import Boolean, DateTime, ForeignKey, String, Text, func
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -14,7 +14,7 @@ class User(Base):
     id: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid = True),
         primary_key= True,
-        default= uuid7.uuid7,
+        default= uuid_utils.uuid7,
     )
     username: Mapped[str] = mapped_column(
         String(50),
@@ -56,7 +56,7 @@ class Team(Base):
     id: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid= True),
         primary_key= True,
-        default= uuid7.uuid7,
+        default= uuid_utils.uuid7,
     )
 
     name: Mapped[str] = mapped_column(
@@ -89,7 +89,7 @@ class TeamMember(Base):
     id: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid= True),
         primary_key= True,
-        default= uuid7.uuid7,
+        default= uuid_utils.uuid7,
     )
 
     team_id: Mapped[UUID] = mapped_column(
@@ -121,7 +121,7 @@ class Task(Base):
     id: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid= True),
         primary_key= True,
-        default = uuid7.uuid7,
+        default = uuid_utils.uuid7,
     )
 
     title: Mapped[str] = mapped_column(
@@ -189,7 +189,7 @@ class Comment(Base):
     id: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid= True),
         primary_key= True,
-        default= uuid7.uuid7,
+        default= uuid_utils.uuid7,
     )
 
     task_id: Mapped[UUID] = mapped_column(
@@ -229,7 +229,7 @@ class TaskHistory(Base):
     id: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid= True),
         primary_key= True,
-        default= uuid7.uuid7,
+        default= uuid_utils.uuid7,
     )
 
     task_id: Mapped[UUID] = mapped_column(
