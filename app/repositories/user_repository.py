@@ -1,12 +1,12 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from core.models import User
-from schemas.user_schema import CreateUserSchema
+from app.core.models import User
+from app.schemas.user_schema import CreateUserDBSchema
 from sqlalchemy import select
 
 class UserRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
-    async def create_user(self, user_setting: CreateUserSchema) -> User:
+    async def create_user(self, user_setting: CreateUserDBSchema) -> User:
         password = user_setting.password_hash
         new_user = User(
             username = user_setting.username,
@@ -21,5 +21,5 @@ class UserRepository:
     async def get_user_by_username(self, username: str) -> User:
         stmt = select(User).where(User.username == username)
         result = await self.session.execute(stmt)
-        user = result.scalar_one_or_none
+        user = result.scalar_one_or_none()
         return user

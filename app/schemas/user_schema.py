@@ -17,3 +17,8 @@ class ReturnUserSchema(BaseModel):
     username: str
     email: str
     created_at: datetime
+
+class CreateUserDBSchema(BaseModel):
+    username:str
+    email: EmailStr
+    password_hash: str
