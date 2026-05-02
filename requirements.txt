@@ -12,7 +12,7 @@ greenlet==3.5.0
 h11==0.16.0
 idna==3.13
 jwt==1.4.0
-pycparser==3.0
+pycparser==3.0dddd
 pydantic==2.13.3
 pydantic_core==2.46.3
 python-multipart==0.0.27
