@@ -3,7 +3,7 @@ from fastapi import FastAPI
 import uvicorn
 
 from app.core.database import Base, engine
-from app.api import user
+from app.api import user, auth
 import app.core.models  # noqa: F401
 
 
@@ -17,6 +17,7 @@ async def lifespan(app: FastAPI):
 def create_app() -> FastAPI:
     app = FastAPI(lifespan=lifespan)
     app.include_router(user.router)
+    app.include_router(auth.router)
     return app
 
 

@@ -14,7 +14,7 @@ def create_hash_password(password: str) -> str:
     return hashed.decode("utf-8")
 
 def check_password(password_hash: str, plain_password: str) -> bool:
-    return checkpw(password_hash.encode("utf-8"), plain_password.encode("utf-8"))
+    return checkpw(plain_password.encode("utf-8"), password_hash.encode("utf-8"))
 
 PRIVATE_KEY = Path("app/certs/private_key.pem").read_text()
 PUBLIC_KEY = Path("app/certs/public_key.pem").read_text()

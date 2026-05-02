@@ -1,7 +1,7 @@
 from app.repositories.auth_repository import AuthRepository
 from fastapi import HTTPException, status
 from app.schemas.auth_schema import AuthUserSchema
-from app.core.securities.secutiry import check_password, jwt_encode
+from app.core.securities.secutity import check_password, jwt_encode
 
 class AuthService:
     def __init__(self, repo: AuthRepository):

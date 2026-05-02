@@ -2,7 +2,7 @@ from fastapi import status, Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer, HTTPBearer, HTTPAuthorizationCredentials
 from app.services.user_serviece import UserService
 from app.dependecies.user_di import get_user_service
-from app.core.securities.secutiry import jwt_decode
+from app.core.securities.secutity import jwt_decode
 from uuid import UUID
 
 security = HTTPBearer()
