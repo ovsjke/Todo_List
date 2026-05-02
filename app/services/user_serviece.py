@@ -1,7 +1,7 @@
 from app.repositories.user_repository import UserRepository
 from fastapi import HTTPException, status
 from app.schemas.user_schema import CreateUserSchema, CreateUserDBSchema
-from app.core.securities.secutity  import create_hash_password
+from app.core.secutity  import create_hash_password
 from uuid import UUID
 
 class UserService:
