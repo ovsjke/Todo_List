@@ -1,7 +1,9 @@
-from repositories.user_repository import UserRepository
+from app.repositories.user_repository import UserRepository
 from fastapi import HTTPException, status
-from schemas.user_schema import CreateUserSchema
-from core.secutiry import create_hash_password
+from app.schemas.user_schema import CreateUserSchema
+from app.core.securities.secutiry  import create_hash_password
+from uuid import UUID
+
 class UserService:
     def __init__(self, repo: UserRepository):
         self.repo = repo
@@ -15,4 +17,5 @@ class UserService:
             email = user_setting.email,
             password_hash = hashed
         )
-        
+    async def get_user_by_id(self, user_id: UUID):
+        return await self.repo.get_user_by_id(user_id)
